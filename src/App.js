@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+import "./App.css";
+import Restaurants from "./Restaurants.jsx";
+import {useRecoilState} from "recoil"
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [restaurants, setRestaurants] = useState([]);
+  const [searchResults, setSearchResults] = useState("")
+  const [reRender, setReRender] = useState(false)
+  /// change use effect to fucntion that called when user clicks search button ///
+  useEffect(() => {
+    let foodType = searchResults
+    fetch(`http://localhost:8000/restaurant/${foodType}`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        // console.log(data);
+        setRestaurants(data)
+      });
+  }, []);
+  return <div className="App" > 
+  <Restaurants setReRender={setReRender} restaurants={restaurants} setRestaurants={setRestaurants} searchResults={searchResults} />
+  </div>;
 }
 
 export default App;
