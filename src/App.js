@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import Restaurants from "./Restaurants.jsx";
-import { useRecoilState } from "recoil";
 
 function App() {
   const [restaurants, setRestaurants] = useState([]);
