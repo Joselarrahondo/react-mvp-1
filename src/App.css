@@ -1,10 +1,53 @@
 .App {
-  text-align: center;
+  display: flex;
+  width:100vw;
+  height: 100vh;
+flex-direction: column;
+margin:0;
 }
 
 
 
 
-.seachBtn{
-  background-color: blue;
+.searchBtn{
+  height: 3.5vmin;
+  width: 12vmin;
+  color:black;
+  margin-left: 1vmin;;
+  
+}
+
+.results{
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: inherit;
+  background-color: wheat;
+  flex-direction: column;
+  padding: 5px;
+}
+.results input{
+height:3vmin;
+width: 17vmin;
+}
+
+.singleRestaurant{
+border: solid black 1px;
+margin: 1vmin; 
+background-color: rgb(36,36,36);
+color:white;
+width: 30vmin;
+height: 30vmin;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+}
+
+
+.renderResults{
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
 }
