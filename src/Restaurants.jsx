@@ -5,6 +5,7 @@ import axios from 'axios';
 const Restaurants = (props) => {
     const [cuisine, setCuisine] = useState("");
     const [restaurantData, setRestaurantData] = useState([]);
+    
 useEffect(() => {
     searchRestaurant();
 },[])
@@ -14,7 +15,7 @@ useEffect(() => {
 
 
     };
-    ///////// updating sate of cuisine to user input ////////
+           ///////// updating sate of cuisine to user input ////////
 
     const handleCuisineChange = (e) => {
         e.preventDefault();
@@ -22,7 +23,7 @@ useEffect(() => {
 
     }
 
-    ////////// invokes searchRestaurant once submit button is clicked && changes showAll state to false /////
+  
 
     const handleCuisineBtn = (e) => {
         e.preventDefault()
@@ -31,33 +32,15 @@ useEffect(() => {
 
     }
 
-    ////////// Shows all restaurants in database ///////
-
-    const showAllBtn = () => {
-       
-        searchRestaurant()
-
-    }
-
-
     return (
-        <div className="results" >
+     <div className="results" >
             <div>
             <form onSubmit={handleCuisineBtn} >
                 <input onChange={handleCuisineChange} value={cuisine} type="text" placeholder="search restaurants" />
                  <button className='searchBtn' type="submit">SUBMIT</button>
             </form>
             </div>
-         
 
-        
-
-
-            {/** If showAll true map restaurants and display them */}
-            
-      
-
-            {/** if restaurant data is not empty display queried restaurants  */}
         <div className='renderResults'>
             {restaurantData ? restaurantData.map((restaurantData) => {
                 return (
@@ -72,7 +55,7 @@ useEffect(() => {
 
             }) : null}
         </div>
-        </div>
+    </div>
     )
 };
 
